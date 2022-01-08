@@ -1,0 +1,171 @@
+jQuery notes 
+
+jQuery is the one of the most widely used JS libraries.
+It simplifies the process of writing client-side JS and ensures code works the same way in all browsers.
+
+
+
+Not a language - JS framework/library.
+
+Useses HTML/CSS to do stuff with the code 
+
+Often will simplify JS so it can be used on websites.
+
+Change the behaviour of website when users interact or time has passed or something has happened
+e.g. banner sliding after a couple of seconds 
+
+
+‘Do more with Javascript but write less code’.
+
+Same function in different languages example:
+
+jQuery
+
+$('#test').click(function(){
+	$(this).hide(),
+});
+
+
+
+JS
+
+document.getElementById("test").onclick = function() {
+	document.getElementById(this.style.display = ‘none’
+	}
+
+
+You can even mix these languages.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Adding to website
+
+Being a framework/lib it needs to be downloaded before adding to code
+
+jquery.com - download or link to CDN (content delivery network, always updated but cant work offline)
+
+here is minified version to put in html(head tag so it loads first):
+<script   src="https://code.jquery.com/jquery-3.6.0.min.js"   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="   crossorigin="anonymous"></script>
+
+if using dl vers we can add it to a ‘js’ folder within the page dir and link to it in header:
+<script src='js/jquery-3.2.1.min.js'></script>
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Syntax and Differences to JS
+
+So far we have imported our jquery library files into our index.html and it looks like this:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src='js/jquery-3.2.1.min.js'></script>
+</head>
+<body>
+</body>
+</html>
+
+When we add more script tags to link to our jquery we will put them in the body.
+
+In our js folder we can write a file called main.js and here we will write our jquery code.
+
+Let's link to this file in the head:
+<script src="js/main.js"></script>
+
+We can also write the code on the front page for demonstration purposes.
+
+Syntax example:
+
+<p id='test'>this is a paragraph</p>
+
+<script>
+document.getElementById('test')
+</script>
+
+We are targetting the paragraph using the id, then we can do something to the element:
+
+<script>
+document.getElementById('test').onclick = function() {
+	alert('Clicked');
+</script>
+
+the user will get a pop up alert with 'Clicked' when the paragraph is clicked
+
+
+To write the same thing with jQuery:
+
+<script>
+$("#test').click(function() {
+		alert('Clicked');
+});
+</script>
+
+jquery is simpler with less code 
+
+
+We need to have the HTML load before the JS so the script needs to go at the end, but if we use jquery we can use our
+<script>
+$(document).ready(function() {
+$("#test').click(function() {
+		alert('Clicked');
+});
+});
+</script>
+
+This says when the doc (html) is loaded the jquery will then be loaded.
+
+So we have looked at selecting element and targeting by id, doing something to it and giving the user back a message.
+
+some other selectors we could use are
+$(".test") - a class called test
+$("p") - all <p> elements
+$("div") - all <div> elements
+
+much simpler than using getElementById
+
+we can select and then act upon in same function - this example selects by ID and then hides on click (after html has loaded)(notice familliar (this) notation:
+
+<script>
+	$(document).ready(function(){
+		$(#'test').click(function()
+			$(this).hide();
+		});
+	});
+</script>
+
+another example could by ‘all p with the class of test’
+$('p.test'')
+
+
+All selectors available to view at:
+https://api.jquery.com/category/selectors/
+
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+
+In this course we will use jQuery to select, remove, clone and modify different elements on the page 
+
+
+Learn How Script Tags and Document Ready Work
+
+we have to add a script to the top of our page and close it on the following line 
+in the script we will add 
+$(document).ready(function() {
+
+<script>   $(document).ready(function() {   }); </script>
+
+without this function our code may run before the HTML is rendered which can cause bugs  
+the form of this function is familliar from our JS algos
+we could put a console.log 
+<script>   $(document).ready(function() { console.log("the page has loaded" }); </script>
+this will run the console log when the html code has loaded/rendered 
+
+even if it is above the script - it will not run until later  
+
+
+
+
