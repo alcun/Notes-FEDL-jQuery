@@ -138,7 +138,7 @@ we can select and then act upon in same function - this example selects by ID an
 </script>
 
 another example could by ‘all p with the class of test’
-$('p.test'')
+$('p.test')
 
 
 All selectors available to view at:
